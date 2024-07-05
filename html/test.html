@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<head>
+		<title>title</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" href="test.css">
+		<link rel="stylesheet" href="dwform/dwform.css">
+	</head>
+	<body>
+		<h1>Test Input Form Component</h1>
+		<div>
+			<form id="myform">
+
+				<input type="text" id="txt_nama" class="dw-textbox" style="width:300px; border: 1px solid #ddd" placeholder="Nama" value="">
+				<input type="text" id="txt_alamat" class="dw-textbox" style="width:500px; border: 1px solid #ddd" placeholder="Alamat" value="">
+				<input type="text" id="txt_kota" class="dw-textbox" style="width:200px; border: 1px solid #ddd" placeholder="Kota" value="Jakarta">
+
+			</form>
+		</div>
+	</body>	
+
+	<script type="module">
+		import * as dwform from './dwform/dwform.mjs'
+		import * as main from './test.mjs'
+
+		window.addEventListener("load", async (event) => {
+			await dwform.Init('myform')
+			main.Init()
+		})
+	</script>	
+</html>
