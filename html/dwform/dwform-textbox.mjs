@@ -61,6 +61,10 @@ export default function Textbox(el) {
 		, GetElement() {
 			return wrapper
 		}
+
+		, GetMask() {
+			return inpputmask
+		}
 	}
 
 
@@ -76,8 +80,14 @@ function textbox_keyup(event) {
 function setreadonly(obj, value) {
 	var wrapper = obj.GetElement()
 	var el = obj.GetInput()
+	var mask = obj.GetMask()
 
 	wrapper.setAttribute("readonly", value)
 	el.setAttribute("readonly", value)
 
+	if (value) {
+		mask.style.visibility = 'visible'
+	} else {
+		mask.style.visibility = 'hidden'
+	}
 }
