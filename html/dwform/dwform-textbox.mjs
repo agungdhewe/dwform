@@ -1,5 +1,6 @@
 export default function Textbox(el) {
 
+	let form;
 	let wrapper = document.createElement('div');
 	var style = el.getAttribute("style")
 	var placeholder = el.getAttribute("placeholder")
@@ -45,28 +46,15 @@ export default function Textbox(el) {
 	})
 
 
-	let obj = {
-		  GetInput: () => {
-			return el
-		}
-
-		, GetType: () => {
-			return 'textbox'
-		}
-
-		, SetReadonly: (value) => {
-			setreadonly(obj, value)
-		}
-
-		, GetElement() {
-			return wrapper
-		}
-
-		, GetMask() {
-			return inpputmask
-		}
-	}
-
+	let obj = { id : el.id }
+	obj.GetInput = () => { return el }
+	obj.GetType = () => { return 'textbox' }
+	obj.SetReadonly = (value) => { setreadonly(obj, value) }
+	obj.GetElement = () => { return wrapper }
+	obj.GetMask = () => { return inpputmask }
+	obj.SetEditMode = () => {}
+	obj.SetForm = (f) => { form = f }
+	obj.GetForm = () => { return form }
 
 	return obj
 }
@@ -90,4 +78,8 @@ function setreadonly(obj, value) {
 	} else {
 		mask.style.visibility = 'hidden'
 	}
+}
+
+function setform(f) {
+
 }
